@@ -1,0 +1,270 @@
+@import 'scss/reset';
+@import 'scss/base';
+
+
+@import url("https://use.typekit.net/qme2tsp.css");
+
+$hauteurNom: 5vh;
+
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.tout {
+  height: 100%;
+  background: antiquewhite;
+  background: url("imgs/daft.png") no-repeat center center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .texteCentre {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar {
+    position: absolute;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    // Will be modified when hover
+    width: 6vw;
+    //----------------------------
+    height: 100%;
+
+    background-color: #11111190;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    .nom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      width: 100%;
+      height: $hauteurNom;
+
+      p {
+        transition: all .5s ease-in-out;
+        font-weight: 700;
+      }
+
+    }
+
+    .menu {
+
+      display: flex;
+      flex-direction: row;
+
+      width: 100%;
+      height: 100vh - (2 * $hauteurNom);
+
+
+      overflow: hidden;
+
+      .texteALEnvers {
+
+        transition: all 0.5s ease-in-out;
+
+        // Will be modified when hover
+        width: 0;
+        //----------------------------
+
+
+        height: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+
+        p {
+
+          color: #CACACA;
+          transition: all 0.5s ease-in-out;
+
+          margin-top: 5vh;
+
+          transform: rotate(-90deg);
+
+          font-size: 4vh;
+
+          height: $hauteurNom;
+          width: 100vh - (2 * $hauteurNom);
+
+          text-align: right;
+
+          // Will be modified when hover
+          opacity: 0;
+          //----------------------------
+
+          &::before {
+            border-top: 3px solid #CACACA;
+            display: block;
+            position: relative;
+            top: $hauteurNom / 2;
+            width: 70%;
+            content: "";
+          }
+        }
+
+      }
+
+      .dansMenu {
+
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        padding: 15vh;
+
+        .onglets {
+          width: 0;
+          height: 100%;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          p {
+            overflow: visible;
+
+            white-space: nowrap;
+
+            opacity: 0;
+            font-family: "Video", serif;
+            font-weight: 400;
+            font-style: normal;
+
+            &:hover {
+              color: #CACACA;
+            }
+          }
+        }
+
+      }
+    }
+
+    .bas {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: $hauteurNom;
+
+      transition: all 0.5s ease-in-out;
+
+      white-space: nowrap;
+
+    }
+
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      width: 50vw;
+
+      .nom {
+        p {
+          margin-left: 5vh;
+        }
+      }
+
+      .texteALEnvers {
+
+        width: $hauteurNom;
+
+        p {
+          opacity: 1;
+        }
+      }
+
+      .dansMenu {
+        .onglets {
+          width: 100%;
+          p {
+            opacity: 1;
+          }
+        }
+      }
+
+      .bas {
+        p::before {
+          content: "@TOM PLANCHE - ";
+        }
+      }
+    }
+
+  }
+
+  .page {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &#page1 {
+      background-color: #111111;
+    }
+
+    &#page2 {
+      background-color: #b94949;
+    }
+
+    &#page3 {
+      background-color: #bbbbbb;
+    }
+
+  }
+
+  h1 {
+    font-size: calc(100vw * 100 / 1440);
+    color: aliceblue;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+
+    z-index: 9;
+  }
+
+  p {
+    font-size: calc(24vw * 100 / 1440);
+    color: white;
+    font-family: "Video", Serif;
+    font-weight: 400;
+  }
+}
+
+a {
+  text-decoration: underline;
+}
+

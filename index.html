@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" type="text/css" href="src/styles.scss"/>
@@ -28,24 +28,34 @@
 
     </head>
 
-    <body>
 
-    <div class="tout">
-        <div class="texteCentre">
-            <h1>DAFT</h1>
-            <h1>PUNK</h1>
+
+    <body>
+        <div class="page" id="page1">
+            <div class="centeredText">
+                <h1>DAFT</h1>
+                <h1>PUNK</h1>
+            </div>
+
+        </div>
+        <div class="page" id="page2">
+
+        </div>
+        <div class="page" id="page3">
+
         </div>
 
-        <div class="navbar">
-            <div class="nom">
-                <p>PUNK</p>
+
+        <div class="navBar">
+            <div id="name">
+                <p id="change"></p>
             </div>
             <div class="menu">
-                <div class="texteALEnvers">
+                <div class="angledText">
                     <p>1993 - 2021</p>
                 </div>
-                <div class="dansMenu">
-                    <div class="onglets">
+                <div class="insideMenu">
+                    <div class="tabs">
                         <p>History</p>
                         <p>Agents</p>
                         <p>Photosessions</p>
@@ -54,13 +64,23 @@
                 </div>
             </div>
             <div class="bas">
-                <p>2022</p>
+               <p id="notUnderlined"><a href="https://github.com/TomPlanche"></a>2022</p>
             </div>
         </div>
-    </div>
 
+        <div class="points">
+            <div class="point selected" id="point1"></div>
+            <div class="point" id="point2"></div>
+            <div class="point" id="point3"></div>
+        </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollToPlugin.min.js"></script>
 
     <script type="module" src="src/index.ts"></script>
+
 
     </body>
 </html>

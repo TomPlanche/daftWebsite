@@ -1,11 +1,9 @@
 @import 'scss/reset';
 @import 'scss/base';
 
-
 @import url("https://use.typekit.net/qme2tsp.css");
 
 $hauteurNom: 5vh;
-
 
 * {
   -webkit-user-select: none;
@@ -13,10 +11,9 @@ $hauteurNom: 5vh;
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+
+  z-index: 1;
 }
-
-
-
 
 body {
   background: antiquewhite;
@@ -28,7 +25,6 @@ body {
 
   position: relative;
 
-
   .navBar {
     position: fixed;
     left: 0;
@@ -39,14 +35,12 @@ body {
     align-items: center;
     justify-content: center;
 
-
     // Will be modified when hover
     width: 6vw;
     //----------------------------
-
     height: 100vh;
 
-
+    // Blurry background
     background-color: #11111190;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -64,47 +58,38 @@ body {
         transition: all .5s ease-in-out;
         font-weight: 700;
       }
-
     }
 
     .menu {
-
       display: flex;
       flex-direction: row;
 
       width: 100%;
       height: 100vh - (2 * $hauteurNom);
 
-
       overflow: hidden;
 
       .angledText {
-
         transition: all 0.5s ease-in-out;
 
         // Will be modified when hover
         width: 0;
         //----------------------------
 
-
         height: 100%;
 
         display: flex;
-
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
-
-
         p {
-
           color: #CACACA;
+
           transition: all 0.5s ease-in-out;
+          transform: rotate(-90deg);
 
           margin-top: 5vh;
-
-          transform: rotate(-90deg);
 
           font-size: 4vh;
 
@@ -113,10 +98,11 @@ body {
 
           text-align: right;
 
+          z-index: 3;
+
           // Will be modified when hover
           opacity: 0;
           //----------------------------
-
           &::before {
             border-top: 3px solid #CACACA;
             display: block;
@@ -126,18 +112,15 @@ body {
             content: "";
           }
         }
-
       }
 
       .insideMenu {
-
         height: 100%;
         width: 100%;
 
         display: flex;
         align-items: center;
         justify-content: center;
-
 
         padding: 15vh;
 
@@ -164,12 +147,10 @@ body {
             }
           }
         }
-
       }
     }
 
     .bas {
-
       display: flex;
       align-items: center;
       justify-content: center;
@@ -181,11 +162,9 @@ body {
 
       white-space: nowrap;
 
-
       p {
         text-decoration: none;
       }
-
     }
 
     transition: all 0.5s ease-in-out;
@@ -200,7 +179,6 @@ body {
       }
 
       .angledText {
-
         width: $hauteurNom;
 
         p {
@@ -218,7 +196,6 @@ body {
       }
 
       .bas {
-
         a::after {
           content: "TOMPLANCHE - ";
         }
@@ -240,28 +217,55 @@ body {
     align-items: center;
     justify-content: center;
 
-
-    // Will be modified when hover
     width: 6vw;
-    //----------------------------
-
     height: 100vh;
 
-
-
     .point {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 100;
+
+      p {
+        width: 12vh;
+
+        text-align: center;
+
+        transform: translateX(-10vh);
+        opacity: 0;
+      }
+
       width: 2vh;
       height: 2vh;
 
-      background: #CACACA;
+
+      background: #EEEEEE;
       border-radius: 50%;
 
-      margin: 1vh;
+      margin: 2vh;
+
 
       &.selected {
-        width: 3vh;
-        height: 3vh;
+        width: 4vh;
+        height: 4vh;
         border: #111111 solid 1px;
+
+      }
+
+      &:hover {
+        &:not(&.selected) {
+        background: #111111;
+        border: #CACACA solid 1px;
+        }
+
+        p {
+          opacity: 1;
+          border-radius: 25px;
+          background-color: #11111190;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
       }
     }
   }
@@ -273,6 +277,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    h1 {
+      font-family: "Video", Serif;
+    }
   }
 
 
@@ -285,19 +293,101 @@ body {
     align-items: center;
     justify-content: center;
 
+    padding: 0 6vw;
+
+    .demi {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 2;
+
+      &.v {
+        width: 50%;
+        height: 100%;
+      }
+
+      &.h {
+        width: 100%;
+        height: 50%;
+      }
+
+      &.t {
+        align-items: normal;
+        height: 25%;
+      }
+
+      &:nth-child(even) {
+        height: 25%;
+      }
+
+      &:nth-child(odd) {
+        height: 75%;
+      }
+
+      &.d {
+        justify-content: right;
+      }
+    }
+
     &#page1 {
       background: url("imgs/daft.png") no-repeat center center;
       background-size: cover;
     }
 
     &#page2 {
-      background-color: #b94949;
+      background-color: #111111;
+
+      img {
+        width: 60vw;
+      }
+
+      p {
+        position: absolute;
+      }
     }
 
     &#page3 {
-      background-color: #bbbbbb;
-    }
+      background-color: darkslategray;
 
+      display: flex;
+      justify-content: space-between;
+
+      .triangle {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 0 solid transparent;
+        border-left-width: 100vw;
+        border-right-width: 0px;
+        border-top: 25vh solid #111111;
+
+        z-index: 0;
+      }
+
+      img {
+        height: 75%;
+        width: auto;
+
+        animation: head-move 4s infinite;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .descrArt {
+        width: 50%;
+        height: 80%;
+
+        z-index: 2;
+
+        p {
+          text-align: right;
+        }
+      }
+    }
   }
 
   h1 {
@@ -313,12 +403,30 @@ body {
 }
 
 p, a {
-    font-size: calc(24vw * 100 / 1440);
-    color: white;
-    font-family: "Video", serif;
-    font-weight: 400;
+  font-size: calc(24vw * 100 / 1440);
+  color: white;
+  font-family: "Video", serif;
+  font-weight: 400;
 
-    &:hover:not(#notUnderlined) {
-      color: #CACACA;
-    }
+  &:hover:not(.notUnderlined) {
+    color: #CACACA;
   }
+}
+
+@keyframes head-move {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(-180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

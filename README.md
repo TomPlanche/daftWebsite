@@ -1,7 +1,7 @@
 np# Daft Punk Website
 
 
-<img src="screen-record.gif" width="100%">
+<img src="src/imgs/siteDaftC.gif" width="100%">
 
 ## Credits
 

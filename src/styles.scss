@@ -4,13 +4,21 @@
 @import url("https://use.typekit.net/qme2tsp.css");
 
 $hauteurNom: 5vh;
+$taille-curseur: 5vh;
+$couleur-curseur: #CACACA60;
+
+$degresCercle: 360deg;
+$num-letters: 9;
+
+$angle-offset: 0px;
+$angle-per-char: $degresCercle / $num-letters;
 
 * {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: default;
+  cursor: none;
 
   z-index: 1;
 }
@@ -279,8 +287,12 @@ body {
     justify-content: center;
 
     h1 {
-      font-family: "Video", Serif;
+      font-family: "Video", Serif, monospace;
+
+
     }
+
+
   }
 
 
@@ -334,6 +346,7 @@ body {
     &#page1 {
       background: url("imgs/daft.png") no-repeat center center;
       background-size: cover;
+      display: flex;
     }
 
     &#page2 {
@@ -360,7 +373,6 @@ body {
         height: 0;
         border: 0 solid transparent;
         border-left-width: 100vw;
-        border-right-width: 0px;
         border-top: 25vh solid #111111;
 
         z-index: 0;
@@ -408,10 +420,58 @@ p, a {
   font-family: "Video", serif;
   font-weight: 400;
 
+
   &:hover:not(.notUnderlined) {
     color: #CACACA;
+
+    ~ .cursor--small {
+      background: #0074D9;
+    }
+
   }
 }
+
+
+.cursor {
+  position: fixed;
+  pointer-events: none;
+
+  left: $taille-curseur / -2;
+  top: $taille-curseur / -2;
+  border-radius: 50%;
+  z-index: 11000;
+  background: $couleur-curseur;
+  border: #CACACA solid 1px;
+
+
+
+}
+
+
+.cursor--small {
+  width: $taille-curseur;
+  height: $taille-curseur;
+
+
+}
+
+.cursor--large {
+
+
+  width: $taille-curseur * 1.5;
+  height: $taille-curseur * 1.5;
+
+  left: ($taille-curseur * 1.5) / -2;
+  top: ($taille-curseur * 1.5) / -2;
+}
+
+
+.cursor--canvas {
+    width: 0;
+    height: 0;
+    z-index: 12000;
+}
+
 
 @keyframes head-move {
   0% {

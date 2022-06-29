@@ -179,3 +179,37 @@ gsap.to("#img-1", {
 });
 // GSAP ANIMATION END ***********************************************************
 
+/**
+ * CUSTOM CURSOR
+ */
+let clientX = -100;
+let clientY = -100;
+const innerCursor = document.querySelector(".cursor") as HTMLElement;
+
+const initCursor = () => {
+    document.addEventListener("mousemove", e => {
+        clientX = e.clientX;
+        clientY = e.clientY;
+    });
+    const render = () => {
+        innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+
+        requestAnimationFrame(render);
+    };
+    requestAnimationFrame(render);
+};
+
+initCursor();
+
+document.querySelectorAll("a, p:not(.notUnderlined)").forEach(a => {
+	a.addEventListener("mouseover", () => {
+		innerCursor.classList.remove("cursor--small");
+		innerCursor.classList.add("cursor--large");
+	});
+	
+	a.addEventListener("mouseout", () => {
+		innerCursor.classList.remove("cursor--large");
+		innerCursor.classList.add("cursor--small");
+	});
+});
+// END CUSTOM CURSOR ***********************************************************
